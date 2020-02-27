@@ -1,0 +1,91 @@
+$defaultBorder: 1px solid lightgray;
+
+.item {
+  text-align: center;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  border: $defaultBorder;
+  position: relative;
+
+  .image {
+    width: 100%;
+    text-align: center;
+
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+  }
+
+  .bio {
+
+    padding: 15px 0;
+
+    .names {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: black;
+      display: block;
+      margin: 5px 0;
+
+      .username {
+        color: gray;
+        font-size: .9rem;
+        font-style: italic;
+        text-decoration: underline;
+      }
+    }
+
+    .description {
+      color: black;
+      font-size: 1rem;
+    }
+
+  }
+
+  .followers-following-repo {
+
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    div {
+      color: black;
+      font-size: .9rem;
+      text-align: center;
+      border-top: $defaultBorder;
+      border-right: $defaultBorder;
+      padding: 10px 0;
+
+      &:nth-child(2) {
+        border-right: none;
+
+        .num {
+          background-color: lightgreen;
+        }
+      }
+
+      &:nth-child(3) {
+        border-right: none;
+        border-left: $defaultBorder;
+
+        .num {
+          background-color: lightsalmon;
+        }
+      }
+
+      .num {
+        color: white;
+        padding: 0 15px;
+        font-size: 1rem;
+        border-radius: 4px;
+        background-color: lightskyblue;
+      }
+
+    }
+
+  }
+
+}

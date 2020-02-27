@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/search/search.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserItemComponent } from './views/user-item/user-item.component';
+import { LoaderComponent } from './views/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { UserItemComponent } from './views/user-item/user-item.component';
     HeaderComponent,
     SearchComponent,
     UserListComponent,
-    UserItemComponent
+    UserItemComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
