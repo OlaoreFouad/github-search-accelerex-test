@@ -1,6 +1,19 @@
 .container {
   padding: 1rem;
 
+  .total-count-container {
+
+    display: flex;
+    margin: 10px 0;
+
+    span {
+      color: black;
+      font-size: 1.2rem;
+      margin-left: auto;
+    }
+
+  }
+
   .users {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

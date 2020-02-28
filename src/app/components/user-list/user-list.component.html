@@ -1,6 +1,15 @@
 <div class="container">
   <app-loader *ngIf="loading" ></app-loader>
-  <div class="users">
-    <app-user-item *ngFor="let user of users" [user]="user"></app-user-item>
+  <div class="total-count-container" *ngIf="users?.length > 0" >
+    <span>Total Count: {{ totalCount }}</span>
   </div>
+  <div class="users">
+    <app-user-item
+      *ngFor="let user of users | paginate:{ itemsPerPage: 6, currentPage: p }"
+      [user]="user"
+    ></app-user-item>
+  </div>
+  <app-custom-pagination-controls
+    *ngIf="users?.length > 0"
+    (pageChange)="p = $event"></app-custom-pagination-controls>
 </div>
