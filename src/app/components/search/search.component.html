@@ -5,8 +5,14 @@
       <span>Search more than <b>40M</b> users.</span>
     </div>
     <div class="form">
-      <input type="text" class="search-input" placeholder="Search GitHub">
-      <button class="search-btn">Search</button>
+      <input type="text" class="search-input" placeholder="Search GitHub" [formControl]="searchFormControl" (keyup.enter)="onSubmitQuery()">
+      <button
+        class="search-btn"
+        [disabled]="searchFormControl.invalid"
+        (click)="onSubmitQuery()"
+        >
+        Search
+      </button>
     </div>
   </section>
   <hr>

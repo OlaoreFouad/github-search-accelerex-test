@@ -1,17 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { UsersResponse } from './../../models/response.model';
+import { User } from './../../models/user.model';
+import { GithubService } from './../../services/github.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss']
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent implements OnInit, OnDestroy {
 
-  nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  loading = false;
+  users: User[];
+  totalCount: number;
 
-  constructor() { }
+  private sub: Subscription;
+
+  constructor(
+    private githubService: GithubService
+  ) { }
 
   ngOnInit() {
+
+    this.sub = this.githubService.githubSearchTerm.subscribe(query => {
+      this.sub = this.githubService.getUsersByName(query).subscribe(
+        (res: UsersResponse) => {
+          this.users = res.items;
+          console.dir(this.users);
+          this.totalCount = res.total_count;
+        }
+      );
+    });
+
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
 }

@@ -76,6 +76,13 @@ hr {
       font-weight: 500;
       font-size: .9rem;
 
+      &[disabled] {
+        background-color: darken($color: #E9EDF2, $amount: 10%);
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+
       &:hover {
         background-color: darken(#EEF1F5, 5%);
         cursor: pointer;
