@@ -9,7 +9,6 @@
       [user]="user"
     ></app-user-item>
   </div>
-  <app-custom-pagination-controls
-    *ngIf="users?.length > 0"
-    (pageChange)="p = $event"></app-custom-pagination-controls>
+  <pagination-controls class="my-pagination" *ngIf="users?.length > 0"
+    (pageChange)="p = $event"></pagination-controls>
 </div>

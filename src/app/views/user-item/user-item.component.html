@@ -1,9 +1,9 @@
-<div class="item">
+<div class="item" (click)="onUserItemClicked(user.html_url)">
   <div class="image">
     <img [src]="user.avatar_url" [alt]="user.name">
   </div>
   <div class="bio">
-    <span class="names">{{ user.name }} <span class="username">@{{ user.login }}</span></span>
+    <span class="names">{{ user.name }} <span class="username" (click)="onUserItemClicked(user.html_url)">@{{ user.login }}</span></span>
     <p class="description">
       {{ user.bio ? user.bio : 'Bio Not Provided' }}
     </p>

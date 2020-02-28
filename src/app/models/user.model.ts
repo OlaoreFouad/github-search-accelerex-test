@@ -6,5 +6,6 @@ export interface User {
   bio: string;
   public_repos: number;
   followers: number;
+  html_url: string;
   following: number;
 }

@@ -6,6 +6,7 @@ $defaultBorder: 1px solid lightgray;
   padding-top: 10px;
   border: $defaultBorder;
   position: relative;
+  &:hover { cursor: pointer; }
 
   .image {
     width: 100%;
@@ -35,6 +36,9 @@ $defaultBorder: 1px solid lightgray;
         font-size: .9rem;
         font-style: italic;
         text-decoration: underline;
+
+        &:hover { cursor: pointer; }
+
       }
     }
 
