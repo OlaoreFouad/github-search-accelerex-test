@@ -26,7 +26,6 @@ export class GithubService {
 
   getUsersByName(query: string): Observable<UsersResponse> {
     return this._http.get<UsersResponse>(this.BASE_URL, {
-      headers: this.httpOptions,
       params: {
         q: query
       }
@@ -45,6 +44,11 @@ export class GithubService {
   }
 
   getMoreUserData(name: string): Observable<User> {
-    return this._http.get<User>(this.SINGLE_USER_URL + name, { headers: this.httpOptions });
+    return this._http.get<User>(this.SINGLE_USER_URL + name, {
+      params: {
+        client_id: this.CLIENT_ID,
+        client_secret: this.CLIENT_SECRET
+      }
+    });
   }
 }
